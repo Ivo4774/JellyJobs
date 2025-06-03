@@ -1,0 +1,364 @@
+:root {
+    --background-color: #1A4E8D;
+    --main-color: #00064a;
+}
+
+#root {
+    width: 100%;
+    height: 100vh;
+}
+
+/* 🔹 Contenedor de la barra de búsqueda */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    gap: 10px;
+    border-radius: 8px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin: 0 auto;
+}
+
+.search-bar input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-bar .ant-select {
+    background: white;
+    border: 2px solid var(--background-color);
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar .ant-select-selector {
+    background: white;
+    border: none;
+    color: #000;
+    padding: 10px 15px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.search-bar .ant-select-dropdown {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-bar .ant-select-item {
+    color: #000;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+.search-bar .ant-select-item:hover {
+    background: var(--background-color);
+    color: white;
+}
+
+.search-bar .ant-select-item-option-selected {
+    background: #1457a3;
+    color: white;
+}
+
+/* Responsive para la barra de búsqueda en dispositivos pequeños */
+@media (max-width: 768px) {
+    .search-bar {
+        width: 90%;
+    }
+
+    .search-bar .ant-select {
+        min-width: 150px;
+    }
+
+    .search-bar .ant-select-selector {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .search-bar input {
+        font-size: 14px;
+    }
+}
+
+.home-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: var(--main-color);
+}
+
+/* Menú lateral */
+.menu-container {
+    position: fixed;
+    top: 55px;
+    left: 0;
+    width: 200px;
+    height: calc(100% - 55px);
+    background-color: var(--background-color);
+    box-shadow: -5px 0 15px var(--main-color);
+    transition: all 0.2s ease;
+}
+
+.menu-functions {
+    background-color: var(--background-color);
+    height: 100%;
+    padding-top: 20px;
+    border-right: none;
+}
+
+.menu-functions .ant-menu-item {
+    color: white;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.menu-functions .ant-menu-item:hover {
+    background-color: rgba(26, 78, 141, 0.5);
+    color: white;
+}
+
+.menu-functions .ant-menu-item-selected {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.menu-functions .ant-menu-item-icon {
+    font-size: 20px;
+    color: white;
+}
+
+.menu-functions .ant-menu-item:hover .ant-menu-item-icon {
+    transform: scale(1.4);
+}
+
+.menu-functions .ant-menu-item-selected .ant-menu-item-icon {
+    color: white;
+}
+
+/* Responsive para dispositivos pequeños */
+@media (max-width: 768px) {
+    .menu-container {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        box-shadow: none;
+    }
+
+    .menu-functions .ant-menu-item {
+        font-size: 14px;
+    }
+
+    .menu-functions .ant-menu-item-icon {
+        font-size: 18px;
+    }
+
+    .menu-functions .ant-menu-item:hover .ant-menu-item-icon {
+        transform: scale(1.2);
+    }
+}
+
+/* Contenedor de trabajadores */
+.trabajadores-container {
+    margin-left: 8%;
+    margin-top: 2.2%;
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: var(--main-color);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Tarjetas de trabajadores */
+.trabajador-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 290px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trabajador-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #f0f8ff;
+}
+
+.trabajador-img-container {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.trabajador-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.trabajador-nombre {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ant-divider {
+    width: 100%;
+    margin: 10px 0;
+    border-color: #ccc;
+}
+
+.trabajador-card p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.trabajador-select {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.trabajador-card.disponible {
+    border: 3px solid rgb(0, 255, 0);
+}
+
+.trabajador-card.ocupado {
+    border: 3px solid rgb(255, 255, 0);
+}
+
+.trabajador-card.inactivo {
+    border: 3px solid rgb(255, 0, 0);
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        width: 90%;
+        gap: 8px;
+    }
+
+    .search-bar .ant-select {
+        min-width: 140px;
+    }
+
+    .search-bar input {
+        font-size: 14px;
+    }
+
+    .menu-container {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        box-shadow: none;
+    }
+
+    .menu-functions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .menu-functions .ant-menu-item {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .trabajadores-container {
+        width: 90%;
+        margin-left: 0;
+        top: auto;
+        left: auto;
+        transform: none;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .trabajador-card {
+        width: 220px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .search-bar input {
+        font-size: 13px;
+    }
+
+    .search-bar .ant-select {
+        min-width: 100%;
+    }
+
+    .menu-functions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .trabajadores-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .trabajador-card {
+        width: 100%;
+    }
+}
