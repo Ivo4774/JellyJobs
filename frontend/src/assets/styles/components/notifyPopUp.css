@@ -1,0 +1,181 @@
+/* 🔹 Estilos generales del pop-up */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background: white;
+    width: 380px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: relative;
+}
+
+.popup-overlay.show .popup-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* 🔹 Título y botón de cierre */
+h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s ease-in-out;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* 🔹 Lista de notificaciones */
+.notification-list {
+    margin-top: 15px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* 🔹 Estilos para la barra de desplazamiento */
+.notification-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notification-list::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 3px;
+}
+
+.notification-list::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+/* 🔹 Notificaciones */
+.notification-item {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+/* 🔹 Diferentes colores según el tipo */
+.notification-item.trabajador {
+    background: #4A90E2; /* Azul */
+}
+
+.notification-item.solicitud {
+    background: #4CAF50; /* Verde */
+}
+
+/* 🔹 Efecto hover */
+.notification-item:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+/* 🔹 Mensaje cuando no hay notificaciones */
+.no-notifications {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    padding: 10px;
+}
+
+/* 🔹 Responsividad */
+
+/* 📱 Para móviles (menos de 768px) */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 90%; /* Ocupar más espacio en pantallas pequeñas */
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .close-btn {
+        font-size: 18px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .notification-item {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .notification-list {
+        max-height: 220px; /* Reducir altura para móviles */
+    }
+}
+
+/* 📱 Para móviles pequeños (menos de 480px) */
+@media (max-width: 480px) {
+    .popup-content {
+        width: 95%;
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    .close-btn {
+        font-size: 16px;
+    }
+
+    .notification-item {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .notification-list {
+        max-height: 200px;
+    }
+}
+
+/* 💻 Para pantallas grandes (más de 1024px) */
+@media (min-width: 1024px) {
+    .popup-content {
+        width: 400px;
+    }
+}

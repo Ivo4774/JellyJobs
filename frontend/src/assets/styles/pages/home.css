@@ -1,0 +1,335 @@
+:root {
+    --background-color: #1A4E8D;
+    --main-color: #00064a;
+}
+
+#root {
+    width: 100%;
+    height: 100vh;
+}
+
+/* 🔹 Contenedor de la barra de búsqueda */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    gap: 10px;
+    border-radius: 8px;
+    background: none !important;  /* 🔺 Removemos cualquier fondo */
+    border: none !important;      /* 🔺 Eliminamos cualquier borde */
+    box-shadow: none !important;  /* 🔺 Eliminamos sombra */
+}
+
+/* 🔹 Input de búsqueda */
+.search-bar input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+}
+
+/* 🔹 Placeholder del input */
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* 🔹 Estilo general de los Select */
+.search-bar .ant-select {
+    background: white !important; /* Fondo claro */
+    border: 2px solid #1A4E8D !important; /* Borde azul más visible */
+    border-radius: 5px;
+    color: #000 !important; /* Texto oscuro */
+    font-size: 16px !important; /* Tamaño de fuente */
+    font-weight: bold;
+    min-width: 200px; /* Ancho mínimo */
+    height: 40px; /* Altura consistente */
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
+/* 🔹 Estilo del Selector (el contenedor interno del Select) */
+.search-bar .ant-select-selector {
+    background: white !important;
+    border: none !important;
+    color: #000 !important;
+    padding: 10px 15px !important; /* Más espacio interno */
+    height: 40px !important; /* Altura adecuada */
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+    font-size: 16px !important; /* Tamaño de fuente */
+}
+
+/* 🔹 Opciones dentro del menú desplegable */
+.search-bar .ant-select-dropdown {
+    background: white !important;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Estilo de las opciones individuales */
+.search-bar .ant-select-item {
+    color: #000 !important; /* Texto oscuro */
+    font-size: 16px !important; /* Tamaño de fuente */
+    padding: 10px 15px !important; /* Más espacio para mejor visibilidad */
+}
+
+/* 🔹 Cambio de color al pasar el mouse */
+.search-bar .ant-select-item:hover {
+    background: #1A4E8D !important; /* Azul de la marca */
+    color: white !important; /* Texto blanco para contraste */
+}
+
+/* 🔹 Cambio de color cuando una opción está seleccionada */
+.search-bar .ant-select-item-option-selected {
+    background: #1457a3 !important; /* Un azul más fuerte */
+    color: white !important;
+}
+
+/* 🔹 Ajustes responsivos SOLO en teléfonos (menos de 480px de ancho) */
+@media (max-width: 480px) {
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+        width: 90%;
+    }
+
+    .search-bar input {
+        text-align: center;
+    }
+
+    .search-bar .ant-select {
+        min-width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+    }
+}
+
+.home-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: var(--main-color); 
+}
+
+.menu-container {
+    position: fixed;
+    top: 55px; 
+    left: 0;
+    width: 200px;
+    height: calc(100% - 55px);
+    background-color: var(--background-color);
+    box-shadow: -5px 0 15px var(--main-color);
+    transition: all 0.2s ease; 
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-container {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        box-shadow: none;
+    }
+
+    .menu-functions {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+
+    .menu-functions .ant-menu-item {
+        font-size: 14px;
+    }
+}
+
+.menu-functions {
+    background-color: var(--background-color);
+    height: 100%;
+    padding-top: 20px;
+    border-right: none;
+}
+
+.menu-functions .ant-menu-item {
+    color: white;
+    font-size: 16px;
+    transition: all 0.2s ease; 
+}
+
+.menu-functions .ant-menu-item:hover {
+    background-color:rgba(26, 78, 141, 0.5); 
+    color: white; 
+}
+
+.menu-functions .ant-menu-item-selected {
+    background-color: var(--main-color); 
+    color: white !important; 
+}
+
+.menu-functions .ant-menu-item-icon {
+    font-size: 20px;
+    color: white; 
+}
+
+.menu-functions .ant-menu-item:hover .ant-menu-item-icon {
+    transform: scale(1.4); 
+}
+
+.menu-functions .ant-menu-item-selected .ant-menu-item-icon {
+    color: white !important; 
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        width: 100%; 
+        height: auto; 
+        position: relative; 
+        top: 0; 
+        box-shadow: none; 
+    }
+
+    .menu-functions .ant-menu-item {
+        font-size: 14px; 
+    }
+
+    .menu-functions .ant-menu-item-icon {
+        font-size: 18px; 
+    }
+
+    .menu-functions .ant-menu-item:hover .ant-menu-item-icon {
+        transform: scale(1.2); 
+    }
+}
+
+.trabajadores-container {
+    margin-left: 8%;
+    margin-top: 2.2%;
+    width: 80%;                       /* Ancho del contenedor */
+    height: 80%;                      /* Altura del contenedor */
+    display: flex;                    /* Flexbox para organizar los elementos */
+    flex-wrap: wrap;                  /* Permite que los elementos pasen a nuevas filas */
+    gap: 16px;                        /* Espaciado entre elementos */
+    justify-content: center;          /* Centra las tarjetas horizontalmente */
+    align-items: flex-start;          /* Alinea las tarjetas al inicio verticalmente */
+    padding: 30px;
+    position: absolute;               /* Centrar en la pantalla */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-size: cover;          /* Ajusta la imagen para cubrir el contenedor */
+    background-repeat: no-repeat;    /* Evita repetir la imagen */
+    background-position: center;     /* Centra la imagen */
+    overflow-y: auto;                /* Habilita el scroll vertical */
+    overflow-x: hidden;              /* Evita el scroll horizontal */
+    background-color: #00064a;
+}
+
+.trabajador-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;  /* Asegura que todo esté alineado hacia el principio */
+    width: 290px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    text-align: center;
+    position: relative;         /* Incluye padding y border en el tamaño */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añade transiciones suaves para el tamaño y sombra */
+}
+
+.trabajador-card:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la tarjeta */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Agrega una sombra más pronunciada */
+}
+
+/* Estilo del contenedor de la imagen */
+.trabajador-img-container {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px; /* Reduce el espacio debajo de la imagen */
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Asegura que la imagen esté por encima de otros elementos */
+}
+
+/* Estilo de la imagen */
+.trabajador-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Estilo del nombre y apellido */
+.trabajador-nombre {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Línea separadora */
+.ant-divider {
+    width: 100%;
+    margin: 10px 0;
+    border-color: #ccc;
+}
+
+/* Estilo de la información adicional */
+.trabajador-card p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Estilo del desplegable de estado */
+.trabajador-select {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Estilo por estado del trabajador */
+.trabajador-card.disponible {
+    border: 3px solid rgb(0, 255, 0);
+}
+
+.trabajador-card.ocupado {
+    border: 3px solid rgb(255, 255, 0);
+}
+
+.trabajador-card.inactivo {
+    border: 3px solid rgb(255, 0, 0);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .trabajadores-container {
+        width: 90%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .trabajador-card {
+        width: 45%; /* Dos tarjetas por fila en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .trabajador-card {
+        width: 90%; /* Una tarjeta por fila en móviles */
+    }
+}
